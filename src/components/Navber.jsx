@@ -21,7 +21,7 @@ const Navber = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li className="text-gray-500"><Link to='/'>Home</Link></li>
-                    <li className="text-gray-500"><a>Listed Books</a></li>
+                    <li className="text-gray-500"><Link to='/readList'>Read List</Link></li>
                     <li className="text-gray-500"><a>Pages to Read</a></li>
                 </ul>
             </div>

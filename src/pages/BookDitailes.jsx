@@ -1,11 +1,19 @@
 // import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useLoaderData } from "react-router";
+import { addToStoredDB } from '../utility/AddToDB';
 
 const BookDitailes = () => {
 
     const { id } = useParams()
     // console.log(id)
+
+    const handlerRead = id => {
+        // console.log(id)
+        // stored rea book
+
+        addToStoredDB(id)
+    }
 
     const allBooksData = useLoaderData()
     // console.log(allBooksData)
@@ -60,7 +68,7 @@ const BookDitailes = () => {
                 </div>
 
                 <div className='mt-8'>
-                    <button className='btn mr-4'>Read</button>
+                    <button onClick={() => handlerRead(id)} className='btn mr-4'>Read</button>
                     <button className='btn text-white bg-[#59C6D2]'>Wishlist</button>
                 </div>
             </div>
