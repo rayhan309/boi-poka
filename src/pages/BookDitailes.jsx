@@ -2,6 +2,7 @@
 import { useParams } from 'react-router';
 import { useLoaderData } from "react-router";
 import { addToStoredDB } from '../utility/AddToDB';
+import Swal from 'sweetalert2';
 
 const BookDitailes = () => {
 
@@ -9,9 +10,11 @@ const BookDitailes = () => {
     // console.log(id)
 
     const handlerRead = id => {
-        // console.log(id)
-        // stored rea book
-
+        Swal.fire({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success"
+        });
         addToStoredDB(id)
     }
 
@@ -73,7 +76,7 @@ const BookDitailes = () => {
                 </div>
             </div>
         </div>
-     );
+    );
 };
 
 export default BookDitailes;

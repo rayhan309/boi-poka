@@ -21,13 +21,4 @@ body {
 
 .item {
     @apply text-lg text-gray-500 font-semibold
-}
-
-
-.btns {
-    @apply laser relative overflow-hidden border-0 bg-[#23BE0A]
-    before:content-[''] before:absolute before:top-0 before:left-[-100%]
-    before:w-full before:h-full
-    before:bg-[linear-gradient(90deg,transparent,hotpink,transparent)]
-    hover:before:animate-[swipe_2s_linear_infinite]
-}
+} 

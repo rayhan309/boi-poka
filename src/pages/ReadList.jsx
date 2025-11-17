@@ -20,11 +20,9 @@ const ReadList = () => {
         // data fitered 
         const filteredData = data.filter(book => parseId.includes(book.bookId))
         setLocaleData([...filteredData])
-    }, [data]);
+    }, [data]); 
 
-
-    console.log(localeData)
-
+    
     return (
         <>
             <h2 className='text-3xl font-semibold text-center bg-gray-100 py-6'>Books</h2>

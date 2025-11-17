@@ -13,7 +13,8 @@ const Navber = () => {
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li className="text-gray-500"><Link to='/'>Home</Link></li>
                         <li className="text-gray-500"><Link to='/readList'>Read List</Link></li>
-                        <li className="text-gray-500"><a>Pages to Read</a></li>
+                        <li className="text-gray-500"><Link to='/rating'>Pages to Read</Link></li>
+                        <li className="text-gray-500"><Link to='/test'>Test</Link></li>
                     </ul>
                 </div>
                 <a className="text-2xl font-semibold">Book Vibe</a>
@@ -22,7 +23,8 @@ const Navber = () => {
                 <ul className="menu menu-horizontal px-1">
                     <li className="text-gray-500"><Link to='/'>Home</Link></li>
                     <li className="text-gray-500"><Link to='/readList'>Read List</Link></li>
-                    <li className="text-gray-500"><a>Pages to Read</a></li>
+                    <li className="text-gray-500"><Link to='/rating'>Pages to Read</Link></li>
+                    <li className="text-gray-500"><Link to='/test'>Test</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
