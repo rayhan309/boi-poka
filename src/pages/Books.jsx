@@ -1,18 +1,21 @@
 import { Star } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 
 const Books = ({ allBooksData }) => {
 
 
-    const navigate = useNavigate()
-
+    const navigate = useNavigate() 
 
     // toggle pages
     const cardHandler = (id) => {
-
-        navigate(`/bookDitailes/${id}`)
-
+        Swal.fire({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success"
+        });
+         navigate(`/bookDitailes/${id}`)
     };
 
     return (
@@ -21,8 +24,8 @@ const Books = ({ allBooksData }) => {
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8'>
                 {
                     allBooksData.map(singleBook =>
-                        <div onClick={() => cardHandler(singleBook.bookId)} key={singleBook.bookId} className="card shadow-xl p-2">
-                            <figure className='bg-base-300  py-10'>
+                        <div onClick={() => cardHandler(singleBook.bookId)} key={singleBook.bookId} className="card shadow-2xl p-4">
+                            <figure className='bg-base-200  py-10'>
                                 <img
                                     className='w-4/12 h-56 rotate-12'
                                     src={singleBook.image}

@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 const getStoredBook = () => {
 
     const storedBookSTR = localStorage.getItem("readList")
@@ -16,7 +18,12 @@ const addToStoredDB = (id) => {
     const storedBookData = getStoredBook();
 
     if (storedBookData.includes(id)) {
-        alert('vai ai id alrady exjets')
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "This Book Alredy Add Read List!",
+            // footer: '<a class="text-blue-600" href="#">Why do I have this issue?</a>'
+        });
     } else {
         storedBookData.push(id)
         const data = JSON.stringify(storedBookData);
@@ -25,4 +32,4 @@ const addToStoredDB = (id) => {
 
 }
 
-export { addToStoredDB }
+export { addToStoredDB, getStoredBook }
