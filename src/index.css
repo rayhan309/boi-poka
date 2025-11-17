@@ -22,3 +22,7 @@ body {
 .item {
     @apply text-lg text-gray-500 font-semibold
 } 
+
+.active {
+    @apply border text-green-500 
+}
