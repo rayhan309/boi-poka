@@ -11,6 +11,7 @@ const ReadList = () => {
     // console.log(data)
 
     const [localeData, setLocaleData] = useState([])
+    const [Sort, setSort] = useState("")
 
     useEffect(() => {
         // get locale stored data 
@@ -22,6 +23,24 @@ const ReadList = () => {
         setLocaleData([...filteredData])
     }, [data]); 
 
+
+    // sort handle
+    const sortHandle = type => {
+        setSort(type)
+
+        // read sort 
+        if(type === "Read") {
+            const read = localeData.sort((a, b) => a.totalPages - b.totalPages)
+            setLocaleData([...read])
+        }
+
+        // wish sort 
+        if(type === "Wish") {
+            const wish = localeData.sort((a, b) => a.rating - b.rating);
+            setLocaleData([...wish])
+        }
+    }
+
     
     return (
         <>
@@ -29,25 +48,26 @@ const ReadList = () => {
 
             <div className='mt-8'>
                 <div className="dropdown mb-8 ml-[45%]">
-                    <div tabIndex={0} role="button" className="btn m-1 text-white bg-[#23BE0A] transform p-5"><span className='text-lg'>Sort By </span><CircleChevronDown /></div>
+                    <div tabIndex={0} role="button" className="btn m-1 text-white bg-[#23BE0A] transform p-5">
+                        <span className='text-lg'>Sort By {Sort ? Sort : ""}</span><CircleChevronDown /></div>
                     <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                        <li className='text-gray-500'><a>Read Sort</a></li>
-                        <li className='text-gray-500'><a>Wish Sort</a></li>
+                        <li onClick={() => sortHandle("Read")} className='text-gray-500'><a>Read</a></li>
+                        <li onClick={() => sortHandle("Wish")} className='text-gray-500'><a>Wish</a></li>
                     </ul>
                 </div>
                 <Tabs>
                     <TabList>
-                        <Tab>Read List</Tab>
-                        <Tab>Wish List</Tab>
+                        <Tab>Read Books</Tab>
+                        <Tab>Wishlist books</Tab>
                     </TabList>
 
                     {/* contents */}
                     <TabPanel>
                         {
                             localeData.map(book =>
-                                <div key={book.bookId} className='my-10 flex flex-col md:flex-row gap-16'>
+                                <div key={book.bookId} className='my-10 flex flex-col md:flex-row gap-16 shadow-2xl rounded-xl'>
                                     <img
-                                        className='h-[255px]  py-8 px-10 mb-4 bg-gray-100 rounded-xl shadow-2xl'
+                                        className='h-[255px]  py-8 px-10 mb-4 bg-gray-100 rounded-xl shadow'
                                         src={book.image}
                                         alt="books" />
 

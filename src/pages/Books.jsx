@@ -8,7 +8,7 @@ const Books = ({ allBooksData }) => {
 
     const navigate = useNavigate() 
 
-    // toggle pages
+    // toggle daynamic pages 
     const cardHandler = (id) => {
         Swal.fire({
             title: "Good job!",
